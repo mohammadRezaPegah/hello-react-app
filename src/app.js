@@ -1,6 +1,6 @@
-import { Component } from "react"; // Component Class from react <--comment
-
 // Start class base component
+
+// import { Component } from "react"; // Component Class from react <--comment
 
 // class App extends Component {
 //   // Every component class must be a child of Component Class(extend that)
