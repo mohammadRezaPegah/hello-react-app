@@ -12,5 +12,10 @@ import Product from "./components/product";
 // End use locale element writed <--comment
 
 // Start use component <--comment
-ReactDOM.render(<Product />, document.querySelector("#root"));
+let content = (
+  <div className="container">
+    <Product />
+  </div>
+);
+ReactDOM.render(content, document.querySelector("#root"));
 // End use component <--comment
