@@ -2,6 +2,7 @@ import React from "react"; // You also can do not import this module, it's will 
 import ReactDOM from "react-dom";
 import App from "./app"; // Import personal component <--comment
 import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap css <--comment
+import "./css/main.css"; // Import bootstrap css <--comment
 import Product from "./components/product";
 
 // Start use locale element(jsx) writed <--comment

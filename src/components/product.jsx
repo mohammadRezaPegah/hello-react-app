@@ -9,25 +9,25 @@ class Product extends Component {
     // Using json for products list <--comment
     {
       id: 1,
-      image: productImage,
+      image: "https://picsum.photos/200",
       name: "First product",
       selected: 2,
     },
     {
       id: 2,
-      image: productImage,
+      image: "https://picsum.photos/200",
       name: "Second product",
       selected: 3,
     },
     {
       id: 3,
-      image: productImage,
+      image: "https://picsum.photos/200",
       name: "Thirth product",
       selected: 5,
     },
     {
       id: 4,
-      image: productImage,
+      image: "https://picsum.photos/200",
       name: "Forth product",
       selected: null,
     },
