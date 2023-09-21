@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Install bootstrap
+
+4 install bootstrap in project directory run below command:
+
+`npm i bootstrap`
+
+#### Usage:
+
+`import 'bootstrap/dist/css/bootstrap.min.css'`

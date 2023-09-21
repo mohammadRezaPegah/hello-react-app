@@ -1,6 +1,8 @@
 import React from "react"; // You also can do not import this module, it's will be import by compiler <--comment
 import ReactDOM from "react-dom";
 import App from "./app"; // Import personal component <--comment
+import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap css <--comment
+import Product from "./components/product";
 
 // Start use locale element(jsx) writed <--comment
 
@@ -10,5 +12,5 @@ import App from "./app"; // Import personal component <--comment
 // End use locale element writed <--comment
 
 // Start use component <--comment
-ReactDOM.render(<App />, document.querySelector("#root"));
+ReactDOM.render(<Product />, document.querySelector("#root"));
 // End use component <--comment
