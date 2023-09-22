@@ -14,9 +14,7 @@ class Product extends Component {
   id = this.props.productId;
   image = this.props.productImage;
   name = this.props.productName;
-  state = {
-    selected: this.props.productSelected,
-  };
+  state = {};
   render() {
     let productsView = this.productGenerator();
     let element = <>{productsView}</>;
@@ -59,7 +57,7 @@ class Product extends Component {
                 </div>
                 <div className="col-lg-4 col-md-4 col-sm-4 col-4 text-center">
                   <span className="">
-                    {this.productLen(this.state.selected)}
+                    {this.productLen(this.props.productSelected)}
                   </span>
                 </div>
                 <div className="col-lg-4 col-md-4 col-sm-4 col-4">
@@ -97,11 +95,17 @@ class Product extends Component {
   // onClick="{() => {this.increment(target value)}}" <--comment
   increment = () => {
     // How to change state? <--comment
-    const selected = this.state.selected; // This syntax is object distracturing <--comment
-    this.setState({ selected: selected + 1 });
+    // const selected = this.props.productSelected; // This syntax is object distracturing <--comment
+    // this.setState({ selected: selected + 1 });
+
+    // controled by parent <--comment
+    this.props.incerement(this.id);
   };
   decrement = () => {
-    this.setState({ selected: this.state.selected - 1 });
+    // this.setState({ selected: this.props.productSelected - 1 });
+
+    // controled by parent <--comment
+    this.props.decerement(this.id);
   };
   delete = () => {
     this.props.onDelete(this.id);

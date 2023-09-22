@@ -49,6 +49,8 @@ const Products = () => {
           productName={item.name}
           productSelected={item.selected}
           onDelete={handelDelete}
+          incerement={incerement}
+          decerement={decerement}
         >
           hello
         </Product>
@@ -63,7 +65,54 @@ const Products = () => {
     }
     return elements;
   }
-  return <div className="row">{productrender()}</div>;
+
+  function emptyCart() {
+    const newCart = products.map((product) => {
+      product.selected = 0;
+      return product;
+    });
+    setProducts(newCart);
+    // Up code can not work because the seleted pased in the child state and was seted and you cant change it from here, So you most send all datas by props <--comment
+    // Now the product component does not have any state and parent(products) have full control on thath(call this: `controlled component`) <--comment
+    // And all the childe events most be control by parrent(incerement and decrement method most be here);
+  }
+  function incerement(productId) {
+    // Recreate state.products <--comment
+    const newProducts = [...products];
+    const index = newProducts.findIndex((product) => product.id === productId);
+    newProducts[index].selected += 1;
+    setProducts(newProducts);
+  }
+
+  function decerement(productId) {
+    // Recreate state.products <--comment
+    const newProducts = [...products];
+    const index = newProducts.findIndex((product) => product.id === productId);
+    newProducts[index].selected -= 1;
+    setProducts(newProducts);
+  }
+
+  emptyCart = () => {
+    const newCart = products.map((product) => {
+      product.selected = 0;
+      return product;
+    });
+    setProducts(newCart);
+    // Up code can not work because the seleted pased in the child state and was seted and you cant change it from here, So you most send all datas by props <--comment
+    // Now the product component does not have any state and parent(products) have full control on thath(call this: `controlled component`) <--comment
+    // And all the childe events most be control by parrent(incerement and decrement method most be here);
+  };
+
+  return (
+    <div className="row">
+      <div className="col-12 text-left my-2">
+        <button onClick={emptyCart} className="btn btn-warning">
+          Empty card
+        </button>
+      </div>
+      {productrender()}
+    </div>
+  );
 };
 
 export default Products;

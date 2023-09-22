@@ -47,7 +47,7 @@ const Product = (props) => {
                   </button>
                 </div>
                 <div className="col-lg-4 col-md-4 col-sm-4 col-4 text-center">
-                  <span className="">{productLen(selected)}</span>
+                  <span className="">{productLen(props.productSelected)}</span>
                 </div>
                 <div className="col-lg-4 col-md-4 col-sm-4 col-4">
                   <button
@@ -85,10 +85,12 @@ const Product = (props) => {
   function increment() {
     // How to change state? <--comment
 
-    setSelected(selected + 1);
+    // setSelected(props.productSelected + 1);
+    props.incerement(id);
   }
   function decrement() {
-    setSelected(selected - 1);
+    // setSelected(props.productSelected - 1);
+    props.decerement(id);
   }
   function deleteElement() {
     onDelete(id);

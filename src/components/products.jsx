@@ -51,6 +51,8 @@ class Products extends Component {
           productName={item.name}
           productSelected={item.selected}
           onDelete={this.handelDelete}
+          incerement={this.incerement}
+          decerement={this.decerement}
         />
 
         // Also you can use componnt tag exactly like html and whith usage you can add value to childeren props <--comment
@@ -65,11 +67,47 @@ class Products extends Component {
   }
   handelDelete = (productId) => {
     // Get all records instance this id <--comment
-    const newProducts = this.state.products.filter((p) => p.id != productId);
+    const newProducts = this.state.products.filter((p) => p.id !== productId);
     this.setState({ products: newProducts });
   };
+
+  incerement = (productId) => {
+    // Recreate state.products <--comment
+    const newProducts = [...this.state.products];
+    const index = newProducts.findIndex((product) => product.id === productId);
+    newProducts[index].selected += 1;
+    this.setState({ products: newProducts });
+  };
+
+  decerement = (productId) => {
+    // Recreate state.products <--comment
+    const newProducts = [...this.state.products];
+    const index = newProducts.findIndex((product) => product.id === productId);
+    newProducts[index].selected -= 1;
+    this.setState({ products: newProducts });
+  };
+
+  emptyCart = () => {
+    const newCart = this.state.products.map((product) => {
+      product.selected = 0;
+      return product;
+    });
+    this.setState({ products: newCart });
+    // Up code can not work because the seleted pased in the child state and was seted and you cant change it from here, So you most send all datas by props <--comment
+    // Now the product component does not have any state and parent(products) have full control on thath(call this: `controlled component`) <--comment
+    // And all the childe events most be control by parrent(incerement and decrement method most be here);
+  };
   render() {
-    return <div className="row">{this.productrender()}</div>;
+    return (
+      <div className="row">
+        <div className="col-12 text-left my-2">
+          <button onClick={this.emptyCart} className="btn btn-warning">
+            Empty card
+          </button>
+        </div>
+        {this.productrender()}
+      </div>
+    );
   }
 }
 
