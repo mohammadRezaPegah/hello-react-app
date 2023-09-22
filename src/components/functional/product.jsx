@@ -8,8 +8,13 @@ const Product = (props) => {
   // How to define state? <--comment
   // The first varaible is state name and the second varaible is state changer <--comment
   const [selected, setSelected] = useState(props.productSelected);
-  const datas = [props.productId, props.productImage, props.productName];
-  const [id, image, name] = datas;
+  const datas = [
+    props.productId,
+    props.productImage,
+    props.productName,
+    props.onDelete,
+  ];
+  const [id, image, name, onDelete] = datas;
   const productsView = productGenerator();
   function productLen(varaible) {
     // In the JSX V can't use if statements like blow and for this usage V most calculate this in another method, but <--comment
@@ -85,7 +90,9 @@ const Product = (props) => {
   function decrement() {
     setSelected(selected - 1);
   }
-  function deleteElement() {}
+  function deleteElement() {
+    onDelete(id);
+  }
   return productsView;
 };
 

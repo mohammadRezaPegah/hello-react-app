@@ -1,5 +1,12 @@
 import React, { Component } from "react";
 import Product from "./product";
+
+// Notic: products component(this), used product component to show somethings, products is parent and product is child <--comment
+
+// If yU want to change something n parrent componnet follow below steps <--comment
+// 1. Create a method or function in parent component than run your algoritm <--comment
+// 2. Passing the method or function whit props to child component <--comment
+
 class Products extends Component {
   state = {
     products: [
@@ -43,6 +50,7 @@ class Products extends Component {
           productImage={item.image}
           productName={item.name}
           productSelected={item.selected}
+          onDelete={this.handelDelete}
         />
 
         // Also you can use componnt tag exactly like html and whith usage you can add value to childeren props <--comment
@@ -55,6 +63,11 @@ class Products extends Component {
     }
     return elements;
   }
+  handelDelete = (productId) => {
+    // Get all records instance this id <--comment
+    const newProducts = this.state.products.filter((p) => p.id != productId);
+    this.setState({ products: newProducts });
+  };
   render() {
     return <div className="row">{this.productrender()}</div>;
   }

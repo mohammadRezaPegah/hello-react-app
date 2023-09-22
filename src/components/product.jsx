@@ -104,7 +104,7 @@ class Product extends Component {
     this.setState({ selected: this.state.selected - 1 });
   };
   delete = () => {
-    console.log(this);
+    this.props.onDelete(this.id);
   };
 }
 

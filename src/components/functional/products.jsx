@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Product from "./product";
 const Products = () => {
-  const [products, setProduct] = useState([
+  const [products, setProducts] = useState([
     {
       id: 1,
       image: "https://picsum.photos/200",
@@ -28,6 +28,12 @@ const Products = () => {
     },
   ]);
 
+  function handelDelete(productId) {
+    // Get all records instance this id <--comment
+    const newProducts = products.filter((p) => p.id != productId);
+    setProducts(newProducts);
+  }
+
   function productrender() {
     let elements = (
       <div className="col-12 text-center">
@@ -42,6 +48,7 @@ const Products = () => {
           productImage={item.image}
           productName={item.name}
           productSelected={item.selected}
+          onDelete={handelDelete}
         >
           hello
         </Product>
