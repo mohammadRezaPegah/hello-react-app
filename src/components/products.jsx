@@ -6,7 +6,7 @@ import Product from "./product";
 // If yU want to change something n parrent componnet follow below steps <--comment
 // 1. Create a method or function in parent component than run your algoritm <--comment
 // 2. Passing the method or function whit props to child component <--comment
-
+// 3. Use method in the child component <--comment
 class Products extends Component {
   state = {
     products: [
