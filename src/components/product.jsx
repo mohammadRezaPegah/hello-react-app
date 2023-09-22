@@ -75,18 +75,32 @@ class Product extends Component {
               <div className="col-12 text-center mt-4">
                 <div className="row">
                   <div className="col-lg-4 col-md-4 col-sm-4 col-4">
-                    <button className="btn btn-info w-100">-</button>
+                    <button
+                      onClick={this.decrement}
+                      className="btn btn-info w-100"
+                    >
+                      -
+                    </button>
                   </div>
                   <div className="col-lg-4 col-md-4 col-sm-4 col-4 text-center">
                     <span className="">{this.productLen(item.selected)}</span>
                   </div>
                   <div className="col-lg-4 col-md-4 col-sm-4 col-4">
-                    <button className="btn btn-primary w-100">+</button>
+                    <button
+                      onClick={() => {
+                        this.increment();
+                      }}
+                      className="btn btn-primary w-100"
+                    >
+                      +
+                    </button>
                   </div>
                 </div>
               </div>
               <div className="col-12 text-center mt-4">
-                <button className="btn btn-danger w-100">delete</button>
+                <button onClick={this.delete} className="btn btn-danger w-100">
+                  delete
+                </button>
               </div>
             </div>
           </div>
@@ -96,6 +110,24 @@ class Product extends Component {
 
     return elements;
   }
+
+  // For using event you most pass a method to event, and if you wanna use this in method you most write that as a arrow function like below. <--comment
+  // also you can instance arrow function, bind this to method on use, like below exam code <--comment
+  // Exam: <--comment
+  // onClick="{this.incerement.bind(this)}" <--comment
+
+  // For passing parameter to method on event you most use method in a other arrow function, like below exam <--comment
+  // Exam: <--comment
+  // onClick="{() => {this.increment(target value)}}" <--comment
+  increment = () => {
+    console.log(this);
+  };
+  decrement = () => {
+    console.log(this);
+  };
+  delete = () => {
+    console.log(this);
+  };
 }
 
 export default Product;
