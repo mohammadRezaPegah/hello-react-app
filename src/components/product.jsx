@@ -4,34 +4,18 @@ import { Component } from "react"; // Import component class <--comment
 import productImage from "../images/shop/product/s1.jpg"; // Import Image <--comment
 
 class Product extends Component {
-  state = {};
-  products = [
-    // Using json for products list <--comment
-    {
-      id: 1,
-      image: "https://picsum.photos/200",
-      name: "First product",
-      selected: 2,
-    },
-    {
-      id: 2,
-      image: "https://picsum.photos/200",
-      name: "Second product",
-      selected: 3,
-    },
-    {
-      id: 3,
-      image: "https://picsum.photos/200",
-      name: "Thirth product",
-      selected: 5,
-    },
-    {
-      id: 4,
-      image: "https://picsum.photos/200",
-      name: "Forth product",
-      selected: null,
-    },
-  ];
+  // State is a key word and is the important thinks in react and you can use anything with tath. <--comment
+  // Every thing that can change most be go in state, like count but somthing like name, do not need define in state. <--comment
+  // V have 2 type of component: 1-stateless, 2- statefull <--comment
+  // State is the componenet data and by cheging that you cang change the component <--comment
+  // To change a parameter in state you most use this.setState() method that is in Component class <--comment
+  // State can have any parameter, the below state is a prodct component state exam <--comment
+  state = {
+    selected: 2,
+  };
+  id = 1;
+  image = "https://picsum.photos/200";
+  name = "First product";
   render() {
     let productsView = this.productGenerator();
     let element = (
@@ -59,54 +43,49 @@ class Product extends Component {
   productGenerator() {
     // Convert products json to jsx code 4 usage <--comment
     let elements = (
-      <div className="col-lg-12 text-center">
-        <p className="h1">There is no product!</p>
-      </div>
-    );
-    if (this.products.length > 0) {
-      elements = this.products.map((item) => (
-        <div className="col-lg-3 col-md-4 col-sm-6 col-6" key={item.id}>
-          <div className="card">
-            <img src={item.image} alt="prouct name" className="card-img-top" />
-            <div className="card-body">
-              <div className="col-12 text-center mt-4">
-                <span className="h3">{item.name}</span>
-              </div>
-              <div className="col-12 text-center mt-4">
-                <div className="row">
-                  <div className="col-lg-4 col-md-4 col-sm-4 col-4">
-                    <button
-                      onClick={this.decrement}
-                      className="btn btn-info w-100"
-                    >
-                      -
-                    </button>
-                  </div>
-                  <div className="col-lg-4 col-md-4 col-sm-4 col-4 text-center">
-                    <span className="">{this.productLen(item.selected)}</span>
-                  </div>
-                  <div className="col-lg-4 col-md-4 col-sm-4 col-4">
-                    <button
-                      onClick={() => {
-                        this.increment();
-                      }}
-                      className="btn btn-primary w-100"
-                    >
-                      +
-                    </button>
-                  </div>
+      <div className="col-lg-3 col-md-4 col-sm-6 col-6" key={this.id}>
+        <div className="card">
+          <img src={this.image} alt="prouct name" className="card-img-top" />
+          <div className="card-body">
+            <div className="col-12 text-center mt-4">
+              <span className="h3">{this.name}</span>
+            </div>
+            <div className="col-12 text-center mt-4">
+              <div className="row">
+                <div className="col-lg-4 col-md-4 col-sm-4 col-4">
+                  <button
+                    onClick={this.decrement}
+                    className="btn btn-info w-100"
+                  >
+                    -
+                  </button>
+                </div>
+                <div className="col-lg-4 col-md-4 col-sm-4 col-4 text-center">
+                  <span className="">
+                    {this.productLen(this.state.selected)}
+                  </span>
+                </div>
+                <div className="col-lg-4 col-md-4 col-sm-4 col-4">
+                  <button
+                    onClick={() => {
+                      this.increment();
+                    }}
+                    className="btn btn-primary w-100"
+                  >
+                    +
+                  </button>
                 </div>
               </div>
-              <div className="col-12 text-center mt-4">
-                <button onClick={this.delete} className="btn btn-danger w-100">
-                  delete
-                </button>
-              </div>
+            </div>
+            <div className="col-12 text-center mt-4">
+              <button onClick={this.delete} className="btn btn-danger w-100">
+                delete
+              </button>
             </div>
           </div>
         </div>
-      ));
-    }
+      </div>
+    );
 
     return elements;
   }
@@ -120,10 +99,12 @@ class Product extends Component {
   // Exam: <--comment
   // onClick="{() => {this.increment(target value)}}" <--comment
   increment = () => {
-    console.log(this);
+    // How to change state? <--comment
+    const selected = this.state.selected; // This syntax is object distracturing <--comment
+    this.setState({ selected: selected + 1 });
   };
   decrement = () => {
-    console.log(this);
+    this.setState({ selected: this.state.selected - 1 });
   };
   delete = () => {
     console.log(this);
