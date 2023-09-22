@@ -42,7 +42,16 @@ const Products = () => {
           productImage={item.image}
           productName={item.name}
           productSelected={item.selected}
-        />
+        >
+          hello
+        </Product>
+
+        // Also you can use componnt tag exactly like html and whith usage you can add value to childeren props <--comment
+        // Exam:
+        // <Product>
+        // here you can pass your value (like `hello`) and in the component with below key word can use that. <--comment
+        // {props.children}
+        //</Product>
       ));
     }
     return elements;

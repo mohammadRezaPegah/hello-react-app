@@ -1,7 +1,7 @@
 // In functional component V have not state and U most use HOOK <--comment
 // Even U can't use `this` magic key word. Exam: you can't use this exam: this.item <--comment
 // In functoinal component you can have many deference states
-import { useState } from "react"; // Import state hook <--comment
+import { Children, useState } from "react"; // Import state hook <--comment
 
 // To using props in functional component, U most pass the `props` magic keyword to the fuction, like below <--comment
 const Product = (props) => {
