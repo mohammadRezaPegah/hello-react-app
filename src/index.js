@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import App from "./app"; // Import personal component <--comment
 import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap css <--comment
 import "./css/main.css"; // Import bootstrap css <--comment
-import Product from "./components/product";
+// import Product from "./components/product"; // Class base component <--comment
+import Product from "./components/functional/product"; // functional component <--comment
 
 // Start use locale element(jsx) writed <--comment
 
