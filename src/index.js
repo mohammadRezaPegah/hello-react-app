@@ -4,7 +4,9 @@ import App from "./app"; // Import personal component <--comment
 import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap css <--comment
 import "./css/main.css"; // Import bootstrap css <--comment
 // import Product from "./components/product"; // Class base component <--comment
-import Product from "./components/functional/product"; // functional component <--comment
+// import Product from "./components/functional/product"; // Functional component <--comment
+import Products from "./components/products"; // Class base component <--comment
+// import Products from "./components/functional/products"; // Functional component <--comment
 
 // Start use locale element(jsx) writed <--comment
 
@@ -16,7 +18,7 @@ import Product from "./components/functional/product"; // functional component <
 // Start use component <--comment
 let content = (
   <div className="container">
-    <Product />
+    <Products />
   </div>
 );
 ReactDOM.render(content, document.querySelector("#root"));

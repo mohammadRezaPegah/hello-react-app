@@ -3,11 +3,12 @@
 // In functoinal component you can have many deference states
 import { useState } from "react"; // Import state hook <--comment
 
-const Product = () => {
+// To using props in functional component, U most pass the `props` magic keyword to the fuction, like below <--comment
+const Product = (props) => {
   // How to define state? <--comment
   // The first varaible is state name and the second varaible is state changer <--comment
-  const [selected, setSelected] = useState(2);
-  const datas = [1, "https://picsum.photos/200", "First product"];
+  const [selected, setSelected] = useState(props.productSelected);
+  const datas = [props.productId, props.productImage, props.productName];
   const [id, image, name] = datas;
   const productsView = productGenerator();
   function productLen(varaible) {

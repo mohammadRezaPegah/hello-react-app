@@ -10,19 +10,16 @@ class Product extends Component {
   // State is the componenet data and by cheging that you cang change the component <--comment
   // To change a parameter in state you most use this.setState() method that is in Component class <--comment
   // State can have any parameter, the below state is a prodct component state exam <--comment
+  // To Use props(enteries value to the component) U most use `this.props.name`, Like below <--comment
+  id = this.props.productId;
+  image = this.props.productImage;
+  name = this.props.productName;
   state = {
-    selected: 2,
+    selected: this.props.productSelected,
   };
-  id = 1;
-  image = "https://picsum.photos/200";
-  name = "First product";
   render() {
     let productsView = this.productGenerator();
-    let element = (
-      <>
-        <div className="row">{productsView}</div>
-      </>
-    );
+    let element = <>{productsView}</>;
     return element;
   }
 
