@@ -1,9 +1,12 @@
 import React, { PureComponent } from "react";
+import ProductContext from "../../context/product";
+import { useContext } from "react";
 
 const Navbar = (props) => {
+  const productContext = useContext(ProductContext);
   function calculateSum() {
     let sum = 0;
-    props.products.forEach((product) => {
+    productContext.products.forEach((product) => {
       sum += product.selected;
     });
     return sum;

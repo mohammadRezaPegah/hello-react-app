@@ -5,6 +5,8 @@ import { useState } from "react";
 // Start functional component
 // You can use ES6 or based JS <--comment
 
+import ProductContext from "../../context/product";
+
 // Navbar and products are brothers <--comment
 const App = () => {
   const [products, setProducts] = useState([
@@ -76,16 +78,32 @@ const App = () => {
     setProducts(newProducts);
   }
 
+  // For passing data between parent and childs also you can use context that is so easy <--comment
+  // How do taht? follow below steps <--commnet
+  // 1. create a js file and import `createContext` from React. <--comment
+  // 2. create a context as a const and export that. <--comment
+  // 3. import context into the parent component and use that like below.
+
+  // How use this into the childs? follow below steps
+  // 1. import context into the Children <--comment
+  // 2. import useContext from react <--comment
+  // 3. define a cont equals to `useContext('context name')` <--comment
+  // 4. Now you can use this const instance this.props <--comment
+
   let element = (
     <>
-      <Navbar products={products} />
-      <Products
-        products={products}
-        handelDelete={handelDelete}
-        incerement={incerement}
-        decerement={decerement}
-        emptyCart={emptyCart}
-      />
+      <ProductContext.Provider
+        value={{
+          products: products,
+          handelDelete: handelDelete,
+          incerement: incerement,
+          decerement: decerement,
+          emptyCart: emptyCart,
+        }}
+      >
+        <Navbar />
+        <Products />
+      </ProductContext.Provider>
     </>
   );
   return element;

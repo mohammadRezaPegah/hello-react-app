@@ -1,23 +1,26 @@
 import { useState } from "react";
 import Product from "./product";
+import ProductContext from "../../context/product";
+import { useContext } from "react";
 const Products = (props) => {
+  const productContext = useContext(ProductContext);
   function productrender() {
     let elements = (
       <div className="col-12 text-center">
         <h1 className="h3">There is no product</h1>
       </div>
     );
-    if (props.products.length > 0) {
-      elements = props.products.map((item) => (
+    if (productContext.products.length > 0) {
+      elements = productContext.products.map((item) => (
         // To passing parameter to component U most use props like below(it's like html attributes) <--comment
         <Product
           productId={item.id}
           productImage={item.image}
           productName={item.name}
           productSelected={item.selected}
-          onDelete={props.handelDelete}
-          incerement={props.incerement}
-          decerement={props.decerement}
+          onDelete={productContext.handelDelete}
+          incerement={productContext.incerement}
+          decerement={productContext.decerement}
         >
           hello
         </Product>
@@ -36,7 +39,7 @@ const Products = (props) => {
   return (
     <div className="row">
       <div className="col-12 text-left my-2">
-        <button onClick={props.emptyCart} className="btn btn-warning">
+        <button onClick={productContext.emptyCart} className="btn btn-warning">
           Empty card
         </button>
       </div>
