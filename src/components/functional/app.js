@@ -9,6 +9,8 @@ import ProductContext from "../../context/product";
 
 // Navbar and products are brothers <--comment
 const App = () => {
+  // Life sicle
+
   const [products, setProducts] = useState([
     {
       id: 1,
