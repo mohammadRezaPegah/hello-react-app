@@ -2,6 +2,7 @@ import { Component } from "react"; // Component Class from react <--comment
 import Products from "./products";
 import Navbar from "./navbar";
 import { useState } from "react";
+import { useEffect } from "react";
 // Start functional component
 // You can use ES6 or based JS <--comment
 
@@ -9,7 +10,26 @@ import ProductContext from "../../context/product";
 
 // Navbar and products are brothers <--comment
 const App = () => {
-  // Life sicle
+  // Life sicle: In the functional componets for life sycle most use `useEffect` HOOK, and any where thath U need life sycle you most call `useEffect`. <--comment
+  // useEffect: It's a function that get a functional value and on component Mount and Update will be called, Look at the below commented code. <--comment
+  // useEffect(() => { //  <--comment
+  //   console.log("App - Life sycle"); //  <--comment
+  // }); //  <--comment
+
+  // If U wanna call lify sycle just on component Mount, U most give a empty array, by second value to the useEffect HOOK <--comment
+  // follow the commentd below codes. <--comment
+  // useEffect(() => { //  <--comment
+  //   console.log("App - Life sycle"); //  <--comment
+  // }, []); //  <--comment
+
+  // Also U can multiple useEffect in your component. <--comment
+
+  // To use life sycle in unmount you most return another function in useEffect HOOK first value, follow the commented below codes. <--comment
+  // useEffect(() => { //  <--comment
+  //   return () => { //  <--comment
+  //     console.log("App - unMount"); //  <--comment
+  //   }; //  <--comment
+  // }, []); //  <--comment
 
   const [products, setProducts] = useState([
     {
