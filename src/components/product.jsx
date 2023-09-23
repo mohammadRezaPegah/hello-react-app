@@ -15,6 +15,14 @@ class Product extends Component {
   image = this.props.productImage;
   name = this.props.productName;
   state = {};
+
+  componentWillUnmount() {
+    // starts after deleteing a component. <--comment
+    // after did mount render and didmount are start again. <--comment
+    // one of usage is when the product deleted U send a request to server to update database. <--comment
+    console.log("Product - will unMount");
+  }
+
   render() {
     let productsView = this.productGenerator();
     let element = <>{productsView}</>;

@@ -29,6 +29,13 @@ class App extends Component {
     // starts after component change and render method. <--comment
     console.log("App - did update");
   }
+
+  componentWillUnmount() {
+    // starts after deleteing a component. <--comment
+    // after did mount render and didmount are start again. <--comment
+    // one of usage is when the product deleted U send a request to server to update database. <--comment
+    console.log("App - will unMount");
+  }
   componentDidMount() {
     // With didMount you can do some thing like send request to back end and update the information after render. <--commnet
   }
@@ -87,7 +94,7 @@ class App extends Component {
         <ProductContext.Provider
           value={{
             products: this.state.products,
-            handelDelete: this.handelDelee,
+            handelDelete: this.handelDelete,
             incerement: this.incerement,
             decerement: this.decerement,
             emptyCart: this.emptyCart,
