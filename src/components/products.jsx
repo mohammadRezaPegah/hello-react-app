@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Product from "./product";
+import ProductContext from "../context/product";
 
 // Notic: products component(this), used product component to show somethings, products is parent and product is child <--comment
 
@@ -8,23 +9,24 @@ import Product from "./product";
 // 2. Passing the method or function whit props to child component <--comment
 // 3. Use method in the child component <--comment
 class Products extends Component {
+  static contextType = ProductContext;
   productrender() {
     let elements = (
       <div className="col-12 text-center">
         <h1 className="h3">There is no product</h1>
       </div>
     );
-    if (this.props.products.length > 0) {
-      elements = this.props.products.map((item) => (
+    if (this.context.products.length > 0) {
+      elements = this.context.products.map((item) => (
         // To passing parameter to component U most use props like below(it's like html attributes) <--comment
         <Product
           productId={item.id}
           productImage={item.image}
           productName={item.name}
           productSelected={item.selected}
-          onDelete={this.props.handelDelete}
-          incerement={this.props.incerement}
-          decerement={this.props.decerement}
+          onDelete={this.context.handelDelete}
+          incerement={this.context.incerement}
+          decerement={this.context.decerement}
         />
 
         // Also you can use componnt tag exactly like html and whith usage you can add value to childeren props <--comment
@@ -42,7 +44,7 @@ class Products extends Component {
     return (
       <div className="row">
         <div className="col-12 text-left my-2">
-          <button onClick={this.props.emptyCart} className="btn btn-warning">
+          <button onClick={this.context.emptyCart} className="btn btn-warning">
             Empty card
           </button>
         </div>

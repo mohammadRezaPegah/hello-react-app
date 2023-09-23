@@ -1,8 +1,9 @@
 // Start class base component
 
-import { Component } from "react"; // Component Class from react <--comment
+import { Children, Component } from "react"; // Component Class from react <--comment
 import Products from "./components/products";
 import Navbar from "./components/navbar";
+import ProductContext from "./context/product";
 class App extends Component {
   // Every component class must be a child of Component Class(extend that)
   state = {
@@ -42,16 +43,30 @@ class App extends Component {
 
     // Navbar and products are brothers <--comment
 
+    // For passing data between parent and childs also you can use context that is so easy <--comment
+    // How do taht? follow below steps <--commnet
+    // 1. create a js file and import `createContext` from React. <--comment
+    // 2. create a context as a const and export that. <--comment
+    // 3. import context into the parent component and use that like below.
+
+    // How use this into the childs? follow below steps
+    // 1. import context into the Children <--comment
+    // 2. into the class base define `contextType` as a static (static contextType). <--comment
+    // 3. Now tou can use this.context instence this.props <--comment
     let element = (
       <>
-        <Navbar products={this.state.products} />
-        <Products
-          products={this.state.products}
-          handelDelete={this.handelDelete}
-          incerement={this.incerement}
-          decerement={this.decerement}
-          emptyCart={this.emptyCart}
-        />
+        <ProductContext.Provider
+          value={{
+            products: this.state.products,
+            handelDelete: this.handelDelee,
+            incerement: this.incerement,
+            decerement: this.decerement,
+            emptyCart: this.emptyCart,
+          }}
+        >
+          <Navbar />
+          <Products />
+        </ProductContext.Provider>
       </>
     );
     return element;
@@ -91,4 +106,5 @@ class App extends Component {
   };
 }
 
+export default App;
 // End class base component
