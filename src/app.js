@@ -7,9 +7,9 @@ import ProductContext from "./context/product";
 class App extends Component {
   // Mount: <--comment
   // Mount is the componet life sicle that includes: mount(component creation), update(update component(like change selected)), unmount(delete component)
-  // mont includes: constructor, render, didMounted
-  // update includes: render, didMounted
-  // unmount includes:
+  // mont includes: constructor, render, didMounted <--comment
+  // update includes: render, didMounted <--comment
+  // unmount includes: component will unmount <--comment
   // Mount statrts with constructor method. <--comment
   // To use constructor in that you most call super() from Component, else the contructor does not work. <--comment
   // Constructor with default havn't access to props, for using props you most pass this to constructor as a value and also pass this to super ass a value. <--comment
