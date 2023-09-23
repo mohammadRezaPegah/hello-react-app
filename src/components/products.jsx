@@ -27,6 +27,7 @@ class Products extends Component {
           onDelete={this.context.handelDelete}
           incerement={this.context.incerement}
           decerement={this.context.decerement}
+          key={"product" + item.id}
         />
 
         // Also you can use componnt tag exactly like html and whith usage you can add value to childeren props <--comment
