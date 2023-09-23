@@ -8,21 +8,29 @@ class App extends Component {
   // Mount: <--comment
   // Mount is the componet life sicle that includes: mount(component creation), update(update component(like change selected)), unmount(delete component)
   // mont includes: constructor, render, didMounted <--comment
-  // update includes: render, didMounted <--comment
+  // update includes: render, didUpdate <--comment
   // unmount includes: component will unmount <--comment
   // Mount statrts with constructor method. <--comment
   // To use constructor in that you most call super() from Component, else the contructor does not work. <--comment
   // Constructor with default havn't access to props, for using props you most pass this to constructor as a value and also pass this to super ass a value. <--comment
   // After render call the childrens constructor and render will be call, before didMount. <--comment
+
+  // Mount starts on component call. <--comment
+  // Mount sicle: 1. construtor, 2. render, 3 didMount
+
+  // Update starts on component change. <--commnet
+  // Update sicle: 1. render, 2. didUpdate <--comment
   constructor(props) {
     // With constructor U can use for assign value to properties, for exam you can define state here but U can't use set state. <--comment
     super(props);
-    console.log("App - constructor", this.props);
   }
 
+  componentDidUpdate() {
+    // starts after component change and render method. <--comment
+    console.log("App - did update");
+  }
   componentDidMount() {
     // With didMount you can do some thing like send request to back end and update the information after render. <--commnet
-    console.log("App - did mount");
   }
 
   // Every component class must be a child of Component Class(extend that)
